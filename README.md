@@ -1,32 +1,26 @@
-Can you take a look at these refinements? We need the following tweaks — the current behavior isn't matching the intended design direction:
+# AI CA Assistant
 
-1. "Clear Blur" Visual Pass
-Current: Feature cards and dropdowns are using bg-slate-900/80 but the backdrop-blur seems to be stripped or ineffective.
+AI CA Assistant is an innovative web application designed to automate accounting and tax planning tasks using AI technology. Built with React, it integrates Firebase for authentication and data management, the Gemini API for intelligent responses, and features a responsive UI with Tailwind CSS. The app includes a real-time chatbot for CA advice, transaction tracking, budget monitoring, financial analytics, and more, making it a comprehensive tool for individuals and businesses handling Indian tax laws (e.g., GST, deductions under 80C).
 
-Expected:
+## Key Features
+- **AI-Powered Chatbot**: Interactive consultation for tax savings, GST filing, auditing, and financial planning. Supports natural language queries with markdown-formatted responses.
+- **Dashboard Overview**: Year-based selection for viewing total income, expenses, and balance.
+- **Transaction Management**: Add, list, and categorize incomes/expenses with real-time updates via Firestore.
+- **Budget Tracking**: Set budgets, track spending, and receive alerts for over-budget scenarios.
+- **Financial Analytics**: Visual bar charts using Recharts to compare incomes and expenses.
+- **Authentication**: Anonymous sign-in with Firebase for quick access; expandable to full auth.
+- **Report Generation**: Export transactions to PDF using jsPDF.
+- **Responsive and Styled UI**: Modern design with glassmorphism effects, custom scrollbars, and loading animations via Tailwind CSS.
+- **PWA-Ready**: Includes service worker and manifest for offline capabilities and mobile installation.
+- **Error Handling**: Built-in error boundaries and loading states for a smooth user experience.
 
-Use a crisp, translucent "clear blur" look — meaning bg-slate-900/80 with backdrop-blur-sm or backdrop-blur-md.
+## Tech Stack
+- **Frontend**: React.js, Tailwind CSS, Recharts for charts, React Markdown for rendering responses.
+- **Backend Integration**: Firebase (Auth, Firestore), Gemini API for AI.
+- **Tools**: jsPDF for PDF exports, Intersection Observer for animations, npm for dependency management.
+- **Other**: Progressive Web App features with service worker and manifest.
 
-The goal is that content behind the card is visible but defocused, simulating frosted glass (not just opacity).
-
-Please double-check the layering (z-index, stacking context) and ensure backdrop-filter isn’t being blocked by parent containers.
-
-2. Top Nav Hover Behavior
-Issue: Hovering over top nav items is triggering full-width dropdowns/cards — only the Features card should do this on click.
-
-Expected:
-
-Keep hover state for nav items minimal: show only a tagline and a "Try Now" button — no card render unless it's Features and clicked.
-
-This ensures less visual clutter and avoids pushing content downward unintentionally.
-
-3. Pricing Tab Hover: Symmetric CTA
-Expected Behavior:
-
-On hover, pricing tab should show a centered CTA like “Free during Beta” in a clean, symmetric layout.
-
-The design should not shift or expand vertically on hover — just a simple badge or tagline revealed inline with the nav item.
-
-Let me know if any layout constraints (like flex/grid alignment or overflow handling) are affecting these behaviors. If Tailwind config overrides or conflicting classes are involved, happy to jump on a call to debug.
-
-Thanks!
+## Prerequisites
+- Node.js v14+ and npm v6+ installed.
+- Firebase project set up with Firestore and Authentication enabled.
+- Gemini API key for AI features.

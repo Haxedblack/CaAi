@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaAi - Premium Financial Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=SF+Pro+Display:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.min.js"></script>
+</head>
+<body>
+    <!-- Starfield Background -->
+    <canvas id="starfield-canvas"></canvas>
+    
+    <!-- Landing Page -->
+    <div id="landing-page" class="page active">
+        <!-- Enhanced Premium Navigation -->
+        <nav class="navbar premium-frost-glass">
+            <div class="nav-container centered-nav">
+                <!-- Logo moved to left corner -->
+                <div class="nav-brand logo-corner">
+                    <span class="logo-text premium-gradient-text">Ca<span class="ai-accent">Ai</span></span>
+                </div>
+                <!-- Centered navigation links -->
+                <div class="nav-center">
+                    <div class="nav-links">
+                        <a href="#features" class="nav-link" onclick="scrollToFeatures(event)">Features</a>
+                        <a href="#pricing" class="nav-link" onclick="showPricingInfo(event)">
+                            Pricing 
+                            <span class="beta-badge">Free for Beta</span>
+                        </a>
+                        <a href="#about" class="nav-link" onclick="showAboutInfo(event)">About</a>
+                        <a href="#contact" class="nav-link" onclick="showContactInfo(event)">
+                            Contact & Support
+                            <span class="support-indicator">24/7</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-actions">
+                    <button class="nav-btn secondary premium-frost-btn" onclick="showAuthModal('signin')">Sign In</button>
+                    <button class="nav-btn primary premium-gradient-btn" onclick="showAuthModal('signup')">Get Started</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Enhanced Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title premium-gradient-text enhanced-title">
+                    The Future of<br>
+                    <span class="hero-accent">Financial Intelligence</span>
+                </h1>
+                <p class="hero-subtitle elegant-text closer-tagline">
+                    Experience the next generation of financial management with AI-powered insights, elegant design, and institutional-grade analytics at your fingertips.
+                </p>
+                <div class="hero-actions">
+                    <button class="cta-primary premium-gradient-btn" onclick="showAuthModal('signup')">
+                        <i class="fas fa-rocket"></i>
+                        <span>Begin Your Journey</span>
+                    </button>
+                    <button class="cta-secondary premium-frost-btn" onclick="guestAccess()">
+                        <i class="fas fa-eye"></i>
+                        <span>Explore Demo</span>
+                    </button>
+                </div>
+                <div class="trust-indicators premium-frost-glass">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-check"></i>
+                        <span>Enterprise Security</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Real-time Intelligence</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-brain"></i>
+                        <span>AI-Powered CA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Interactive Features Section -->
+        <section class="features" id="features">
+            <div class="section-header">
+                <h2 class="section-title premium-gradient-text">Premium Features</h2>
+                <p class="section-subtitle">Advanced tools for sophisticated financial management</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card premium-frost-glass floating-card interactive-feature" onclick="showFeatureDetails('analytics')">
+                    <div class="feature-icon premium-gradient">
+                        <i class="fas fa-analytics"></i>
+                    </div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Sophisticated financial modeling with predictive insights and trend analysis powered by machine learning algorithms.</p>
+                    <div class="feature-shine"></div>
+                    <div class="click-indicator">Click to explore</div>
+                </div>
+                <div class="feature-card premium-frost-glass floating-card interactive-feature" onclick="showFeatureDetails('ai-advisor')">
+                    <div class="feature-icon premium-gradient">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Financial Advisor</h3>
+                    <p>Your personal CA with 30 years of experience, available 24/7 for intelligent financial guidance and strategic planning.</p>
+                    <div class="feature-shine"></div>
+                    <div class="click-indicator">Click to explore</div>
+                </div>
+                <div class="feature-card premium-frost-glass floating-card interactive-feature" onclick="showFeatureDetails('security')">
+                    <div class="feature-icon premium-gradient">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-grade encryption with multi-factor authentication and zero-knowledge architecture protecting your sensitive data.</p>
+                    <div class="feature-shine"></div>
+                    <div class="click-indicator">Click to explore</div>
+                </div>
+                <div class="feature-card premium-frost-glass floating-card interactive-feature" onclick="showFeatureDetails('portfolio')">
+                    <div class="feature-icon premium-gradient">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                    <h3>Portfolio Intelligence</h3>
+                    <p>Comprehensive portfolio analysis with risk assessment, performance tracking, and optimization recommendations.</p>
+                    <div class="feature-shine"></div>
+                    <div class="click-indicator">Click to explore</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboard-page" class="page">
+        <!-- Dashboard Navigation -->
+        <nav class="dashboard-nav premium-frost-glass">
+            <div class="nav-brand">
+                <span class="logo-text premium-gradient-text">Ca<span class="ai-accent">Ai</span></span>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-icon-btn premium-frost-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge premium-gradient">3</span>
+                </button>
+                <button class="nav-icon-btn premium-frost-btn" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button class="nav-icon-btn premium-frost-btn" onclick="logout()" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div class="dashboard-container">
+            <!-- Enhanced Premium Sidebar -->
+            <aside class="sidebar premium-frost-glass">
+                <div class="sidebar-header">
+                    <h3 class="premium-gradient-text">Dashboard</h3>
+                </div>
+                <div class="sidebar-menu">
+                    <button class="menu-item active premium-frost-btn smooth-tab" data-tab="overview">
+                        <div class="menu-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <span>Overview</span>
+                        <div class="menu-indicator"></div>
+                    </button>
+                    <button class="menu-item premium-frost-btn smooth-tab" data-tab="expenses">
+                        <div class="menu-icon">
+                            <i class="fas fa-receipt"></i>
+                        </div>
+                        <span>Expenses</span>
+                        <div class="menu-indicator"></div>
+                    </button>
+                    <button class="menu-item premium-frost-btn smooth-tab" data-tab="income">
+                        <div class="menu-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <span>Income</span>
+                        <div class="menu-indicator"></div>
+                    </button>
+                    <button class="menu-item premium-frost-btn smooth-tab" data-tab="investments">
+                        <div class="menu-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span>Investments</span>
+                        <div class="menu-indicator"></div>
+                    </button>
+                    <button class="menu-item premium-frost-btn smooth-tab" data-tab="tax-planning">
+                        <div class="menu-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <span>Tax Planning</span>
+                        <div class="menu-indicator"></div>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content with Enhanced Tab Transitions -->
+            <main class="main-content">
+                <!-- Overview Tab -->
+                <div id="overview-tab" class="tab-content premium-frost-glass active smooth-transition">
+                    <div class="tab-header">
+                        <div class="tab-title-section">
+                            <h2 class="tab-title premium-gradient-text">Financial Overview</h2>
+                            <p class="tab-subtitle">Your complete financial intelligence dashboard</p>
+                        </div>
+                        <button class="action-btn premium-gradient-btn" onclick="toggleChatbot()">
+                            <i class="fas fa-brain"></i>
+                            <span>Ask AI CA</span>
+                        </button>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card premium-frost-glass floating-card">
+                            <div class="stat-icon premium-gradient">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value premium-gradient-text">$24,567</div>
+                                <div class="stat-label">Total Balance</div>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+12.5%</span>
+                                </div>
+                            </div>
+                            <div class="stat-sparkline"></div>
+                        </div>
+                        <div class="stat-card premium-frost-glass floating-card">
+                            <div class="stat-icon premium-gradient">
+                                <i class="fas fa-trending-up"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value premium-gradient-text" id="total-income">$5,890</div>
+                                <div class="stat-label">Monthly Income</div>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+8.2%</span>
+                                </div>
+                            </div>
+                            <div class="stat-sparkline"></div>
+                        </div>
+                        <div class="stat-card premium-frost-glass floating-card">
+                            <div class="stat-icon premium-gradient">
+                                <i class="fas fa-trending-down"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value premium-gradient-text">$2,340</div>
+                                <div class="stat-label">Monthly Expenses</div>
+                                <div class="stat-change negative">
+                                    <i class="fas fa-arrow-down"></i>
+                                    <span>-3.1%</span>
+                                </div>
+                            </div>
+                            <div class="stat-sparkline"></div>
+                        </div>
+                        <div class="stat-card premium-frost-glass floating-card">
+                            <div class="stat-icon premium-gradient">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value premium-gradient-text" id="total-investments">$18,945</div>
+                                <div class="stat-label">Investments</div>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+15.7%</span>
+                                </div>
+                            </div>
+                            <div class="stat-sparkline"></div>
+                        </div>
+                    </div>
+
+                    <div class="charts-section">
+                        <div class="chart-card premium-frost-glass floating-card">
+                            <div class="chart-header">
+                                <h3 class="chart-title premium-gradient-text">Portfolio Performance</h3>
+                                <div class="chart-controls">
+                                    <button class="chart-btn active">6M</button>
+                                    <button class="chart-btn">1Y</button>
+                                    <button class="chart-btn">ALL</button>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="portfolio-chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card premium-frost-glass floating-card">
+                            <div class="chart-header">
+                                <h3 class="chart-title premium-gradient-text">Asset Allocation</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="allocation-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other tabs with smooth transitions -->
+                <div id="expenses-tab" class="tab-content premium-frost-glass smooth-transition">
+                    <div class="tab-header">
+                        <div class="tab-title-section">
+                            <h2 class="tab-title premium-gradient-text">Expense Analytics</h2>
+                            <p class="tab-subtitle">Track and optimize your spending patterns</p>
+                        </div>
+                    </div>
+                    <div class="chart-card premium-frost-glass floating-card">
+                        <div class="chart-header">
+                            <h3 class="chart-title premium-gradient-text">Expense Categories</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="expenses-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="income-tab" class="tab-content premium-frost-glass smooth-transition">
+                    <div class="tab-header">
+                        <div class="tab-title-section">
+                            <h2 class="tab-title premium-gradient-text">Income Management</h2>
+                            <p class="tab-subtitle">Track and manage all your income sources</p>
+                        </div>
+                        <div class="tab-actions">
+                            <button class="action-btn premium-gradient-btn" onclick="showAddIncomeModal()">
+                                <i class="fas fa-plus"></i>
+                                <span>Add Income</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="income-sources" id="income-sources-container">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+
+                <div id="investments-tab" class="tab-content premium-frost-glass smooth-transition">
+                    <div class="tab-header">
+                        <div class="tab-title-section">
+                            <h2 class="tab-title premium-gradient-text">Investment Portfolio</h2>
+                            <p class="tab-subtitle">Monitor and manage your investment portfolio</p>
+                        </div>
+                        <div class="tab-actions">
+                            <button class="action-btn premium-gradient-btn" onclick="showAddInvestmentModal()">
+                                <i class="fas fa-plus"></i>
+                                <span>Add Investment</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="investment-holdings" id="investment-holdings-container">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+
+                <div id="tax-planning-tab" class="tab-content premium-frost-glass smooth-transition">
+                    <div class="tab-header">
+                        <div class="tab-title-section">
+                            <h2 class="tab-title premium-gradient-text">Tax Intelligence</h2>
+                            <p class="tab-subtitle">Optimize your tax strategy with AI insights</p>
+                        </div>
+                    </div>
+                    <div class="chart-card premium-frost-glass floating-card">
+                        <div class="chart-header">
+                            <h3 class="chart-title premium-gradient-text">Tax Overview</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="tax-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Enhanced Auth Modal with Guest Option -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content premium-frost-glass">
+            <div class="modal-header">
+                <h2 id="auth-title" class="premium-gradient-text">Welcome Back</h2>
+                <button class="modal-close premium-frost-btn" onclick="closeAuthModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="premium-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="premium-input" required>
+                    </div>
+                    <button type="submit" class="form-submit premium-gradient-btn" id="auth-submit">Sign In</button>
+                </form>
+                <div class="guest-access-section">
+                    <button class="guest-btn premium-frost-btn" onclick="guestAccess()">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Continue as Guest</span>
+                        <small>No registration required</small>
+                    </button>
+                </div>
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+                <div class="social-auth">
+                    <button class="social-btn premium-frost-btn" onclick="googleAuth()">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature Details Modal -->
+    <div id="feature-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content premium-frost-glass large-modal">
+            <div class="modal-header">
+                <h2 id="feature-title" class="premium-gradient-text">Feature Details</h2>
+                <button class="modal-close premium-frost-btn" onclick="closeFeatureModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="feature-content">
+                <!-- Dynamic feature content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium AI Chatbot -->
+    <div id="ai-chatbot" class="chatbot premium-frost-glass">
+        <div class="chatbot-header premium-frost-glass" onclick="toggleChatbot()">
+            <div class="chatbot-avatar premium-gradient">
+                <i class="fas fa-brain"></i>
+                <div class="avatar-pulse"></div>
+            </div>
+            <div class="chatbot-info">
+                <div class="chatbot-name premium-gradient-text">CaAi Assistant</div>
+                <div class="chatbot-status">Online • 30yr CA Experience</div>
+            </div>
+            <div class="chatbot-toggle">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+        <div class="chatbot-body premium-frost-glass">
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will be populated by JavaScript -->
+            </div>
+            <div class="chat-input-container premium-frost-glass">
+                <input type="text" id="chat-input" class="chat-input premium-input" placeholder="Ask your AI CA anything about finances...">
+                <button id="send-chat" class="send-btn premium-gradient-btn" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -3,451 +3,677 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaAi - Premium Financial Intelligence</title>
+    <title>CaAi - Advanced Financial Intelligence Platform</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=SF+Pro+Display:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Starfield Background -->
     <canvas id="starfield-canvas"></canvas>
-    
-    <!-- Landing Page -->
-    <div id="landing-page" class="page active">
-        <!-- Enhanced Premium Navigation -->
+
+    <!-- ============ LANDING PAGE ============ -->
+    <div id="landingPage" class="page active">
+        
+        <!-- Navigation -->
         <nav class="navbar premium-frost-glass">
-            <div class="nav-container centered-nav">
-                <!-- Logo moved to left corner -->
-                <div class="nav-brand logo-corner">
-                    <span class="logo-text premium-gradient-text">Ca<span class="ai-accent">Ai</span></span>
+            <div class="nav-container">
+                <div class="logo-corner">
+                    <span class="logo-text">Ca<span class="ai-accent">Ai</span></span>
+                    <span class="beta-badge">BETA</span>
                 </div>
-                <!-- Centered navigation links -->
                 <div class="nav-center">
                     <div class="nav-links">
-                        <a href="#features" class="nav-link" onclick="scrollToFeatures(event)">Features</a>
-                        <a href="#pricing" class="nav-link" onclick="showPricingInfo(event)">
-                            Pricing 
-                            <span class="beta-badge">Free for Beta</span>
-                        </a>
-                        <a href="#about" class="nav-link" onclick="showAboutInfo(event)">About</a>
-                        <a href="#contact" class="nav-link" onclick="showContactInfo(event)">
-                            Contact & Support
-                            <span class="support-indicator">24/7</span>
-                        </a>
+                        <a href="#features" class="nav-link">Features</a>
+                        <a href="#pricing" class="nav-link">Pricing</a>
+                        <a href="#contact" class="nav-link">Contact</a>
                     </div>
                 </div>
                 <div class="nav-actions">
-                    <button class="nav-btn secondary premium-frost-btn" onclick="showAuthModal('signin')">Sign In</button>
-                    <button class="nav-btn primary premium-gradient-btn" onclick="showAuthModal('signup')">Get Started</button>
+                    <button class="nav-link premium-frost-btn" onclick="showDashboard()">
+                        <svg class="premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                        Dashboard
+                    </button>
                 </div>
             </div>
         </nav>
 
-        <!-- Enhanced Hero Section -->
+        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1 class="hero-title premium-gradient-text enhanced-title">
-                    The Future of<br>
-                    <span class="hero-accent">Financial Intelligence</span>
+                <h1 class="enhanced-title premium-gradient-animated">
+                    The Future of Financial Intelligence
                 </h1>
-                <p class="hero-subtitle elegant-text closer-tagline">
-                    Experience the next generation of financial management with AI-powered insights, elegant design, and institutional-grade analytics at your fingertips.
+                <p class="elegant-handwriting closer-tagline">
+                    Your personal CA assistant powered by advanced AI
                 </p>
                 <div class="hero-actions">
-                    <button class="cta-primary premium-gradient-btn" onclick="showAuthModal('signup')">
-                        <i class="fas fa-rocket"></i>
-                        <span>Begin Your Journey</span>
+                    <button class="cta-primary premium-gradient-btn" onclick="showDashboard()">
+                        <svg class="premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                        Start Free Trial
+                        <div class="btn-shimmer"></div>
                     </button>
-                    <button class="cta-secondary premium-frost-btn" onclick="guestAccess()">
-                        <i class="fas fa-eye"></i>
-                        <span>Explore Demo</span>
+                    <button class="cta-secondary premium-frost-btn">
+                        <svg class="premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <polygon points="5,3 19,12 5,21 5,3"/>
+                        </svg>
+                        Watch Demo
                     </button>
                 </div>
                 <div class="trust-indicators premium-frost-glass">
                     <div class="trust-item">
-                        <i class="fas fa-shield-check"></i>
-                        <span>Enterprise Security</span>
+                        <svg class="trust-icon premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        Bank-grade Security
                     </div>
                     <div class="trust-item">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Real-time Intelligence</span>
+                        <svg class="trust-icon premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <polyline points="3 17 9 11 13 15 21 7"/>
+                            <polyline points="14 7 21 7 21 14"/>
+                        </svg>
+                        95% Prediction Accuracy
                     </div>
                     <div class="trust-item">
-                        <i class="fas fa-brain"></i>
-                        <span>AI-Powered CA</span>
+                        <svg class="trust-icon premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M8 12l2 2 4-4"/>
+                        </svg>
+                        Real-time Data Updates
+                    </div>
+                    <div class="trust-item">
+                        <svg class="trust-icon premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="10" rx="2"/>
+                            <circle cx="12" cy="16" r="1"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        50+ Analytics Models
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Enhanced Interactive Features Section -->
+        <!-- Features Section -->
         <section class="features" id="features">
             <div class="section-header">
-                <h2 class="section-title premium-gradient-text">Premium Features</h2>
-                <p class="section-subtitle">Advanced tools for sophisticated financial management</p>
+                <h2 class="section-title">Premium Features</h2>
+                <p class="section-subtitle">Institutional-grade financial intelligence for everyone</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card premium-frost-glass floating-card interactive-feature" onclick="showFeatureDetails('analytics')">
-                    <div class="feature-icon premium-gradient">
-                        <i class="fas fa-analytics"></i>
+            
+            <div class="analytics-grid">
+                <div class="analytics-card floating-card premium-frost-glass">
+                    <div class="analytics-icon">
+                        <svg width="42" height="42" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2">
+                            <polyline points="3 17 9 11 13 15 21 7"/>
+                            <polyline points="14 7 21 7 21 14"/>
+                        </svg>
                     </div>
-                    <h3>Advanced Analytics</h3>
-                    <p>Sophisticated financial modeling with predictive insights and trend analysis powered by machine learning algorithms.</p>
-                    <div class="feature-shine"></div>
-                    <div class="click-indicator">Click to explore</div>
-                </div>
-                <div class="feature-card premium-frost-glass floating-card interactive-feature" onclick="showFeatureDetails('ai-advisor')">
-                    <div class="feature-icon premium-gradient">
-                        <i class="fas fa-robot"></i>
+                    <div class="analytics-content">
+                        <h3>Predictive Financial Modeling</h3>
+                        <p>Our AI analyzes your spending patterns, income trends, and market conditions to predict future financial scenarios with 95% accuracy.</p>
+                        <div class="analytics-metric">
+                            <span class="metric-number">95%</span>
+                            <span class="metric-label">Prediction Accuracy</span>
+                        </div>
                     </div>
-                    <h3>AI Financial Advisor</h3>
-                    <p>Your personal CA with 30 years of experience, available 24/7 for intelligent financial guidance and strategic planning.</p>
-                    <div class="feature-shine"></div>
-                    <div class="click-indicator">Click to explore</div>
                 </div>
-                <div class="feature-card premium-frost-glass floating-card interactive-feature" onclick="showFeatureDetails('security')">
-                    <div class="feature-icon premium-gradient">
-                        <i class="fas fa-shield-alt"></i>
+
+                <div class="analytics-card floating-card premium-frost-glass">
+                    <div class="analytics-icon">
+                        <svg width="42" height="42" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2">
+                            <rect x="3" y="12" width="6" height="8" rx="1"/>
+                            <rect x="9" y="8" width="6" height="12" rx="1"/>
+                            <rect x="15" y="4" width="6" height="16" rx="1"/>
+                        </svg>
                     </div>
-                    <h3>Enterprise Security</h3>
-                    <p>Bank-grade encryption with multi-factor authentication and zero-knowledge architecture protecting your sensitive data.</p>
-                    <div class="feature-shine"></div>
-                    <div class="click-indicator">Click to explore</div>
-                </div>
-                <div class="feature-card premium-frost-glass floating-card interactive-feature" onclick="showFeatureDetails('portfolio')">
-                    <div class="feature-icon premium-gradient">
-                        <i class="fas fa-chart-network"></i>
+                    <div class="analytics-content">
+                        <h3>Real-time Performance Tracking</h3>
+                        <p>Monitor your portfolio performance, expense ratios, and savings goals with live updates and intelligent alerts.</p>
+                        <div class="analytics-metric">
+                            <span class="metric-number">Real-time</span>
+                            <span class="metric-label">Data Updates</span>
+                        </div>
                     </div>
-                    <h3>Portfolio Intelligence</h3>
-                    <p>Comprehensive portfolio analysis with risk assessment, performance tracking, and optimization recommendations.</p>
-                    <div class="feature-shine"></div>
-                    <div class="click-indicator">Click to explore</div>
                 </div>
+
+                <div class="analytics-card floating-card premium-frost-glass">
+                    <div class="analytics-icon">
+                        <svg width="42" height="42" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                    </div>
+                    <div class="analytics-content">
+                        <h3>Smart Goal Planning</h3>
+                        <p>Set financial goals and receive AI-powered recommendations on optimal savings strategies, investment allocations, and timeline adjustments.</p>
+                        <div class="analytics-metric">
+                            <span class="metric-number">50+</span>
+                            <span class="metric-label">Analytics Models</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analytics-card floating-card premium-frost-glass">
+                    <div class="analytics-icon">
+                        <svg width="42" height="42" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 0 0-20"/>
+                        </svg>
+                    </div>
+                    <div class="analytics-content">
+                        <h3>Market Intelligence</h3>
+                        <p>Access institutional-grade market analysis, sector performance insights, and personalized investment opportunities.</p>
+                        <div class="analytics-metric">
+                            <span class="metric-number">Real-time</span>
+                            <span class="metric-label">Market Data</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing" id="pricing">
+            <div class="section-header">
+                <h2 class="section-title">Pricing Information</h2>
+            </div>
+            <div class="pricing-content premium-frost-glass floating-card">
+                <div class="beta-note">
+                    <svg class="premium-icon" width="24" height="24" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/>
+                    </svg>
+                    <span><b>Free for Beta Users</b></span>
+                </div>
+                <p>We're currently in beta and completely free for all users! Enjoy unlimited access to all premium features.</p>
+                <p><b>Beta users will receive a 50% lifetime discount!</b></p>
+                
+                <div class="pricing-includes">
+                    <b>What's Included:</b>
+                    <ul>
+                        <li>
+                            <svg class="premium-icon" width="18" height="18" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Full AI Financial Advisor access
+                        </li>
+                        <li>
+                            <svg class="premium-icon" width="18" height="18" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Advanced analytics and insights
+                        </li>
+                        <li>
+                            <svg class="premium-icon" width="18" height="18" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Unlimited portfolio tracking
+                        </li>
+                        <li>
+                            <svg class="premium-icon" width="18" height="18" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Real-time market data
+                        </li>
+                        <li>
+                            <svg class="premium-icon" width="18" height="18" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Premium security features
+                        </li>
+                        <li>
+                            <svg class="premium-icon" width="18" height="18" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            24/7 customer support
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="future-pricing">
+                    <h4>Future Pricing (Post-Beta):</h4>
+                    <div class="pricing-tiers">
+                        <div class="pricing-tier">
+                            <span>Personal</span>
+                            <b>$19/month</b>
+                        </div>
+                        <div class="pricing-tier">
+                            <span>Professional</span>
+                            <b>$49/month</b>
+                        </div>
+                        <div class="pricing-tier">
+                            <span>Enterprise</span>
+                            <b>Custom</b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lifetime-discount-note">
+                    Beta users will receive a 50% lifetime discount!
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Support Section -->
+        <section class="support-section" id="contact">
+            <div class="section-header">
+                <h2 class="section-title">Contact & Support</h2>
+            </div>
+            <div class="support-header">
+                <svg class="premium-icon" width="20" height="20" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M3 18v-6a9 9 0 1 1 18 0v6"/>
+                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                </svg>
+                <span class="premium-support-label">24/7 Premium Support</span>
+            </div>
+            <p>Our expert support team is available around the clock to assist with any questions or issues.</p>
+            
+            <div class="support-grid">
+                <div class="support-card premium-frost-glass floating-card">
+                    <svg class="premium-icon" width="24" height="24" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"/>
+                    </svg>
+                    <div>
+                        <b>Live Chat</b><br>
+                        Instant support via in-app chat<br>
+                        <span class="support-detail">Available 24/7</span>
+                    </div>
+                </div>
+
+                <div class="support-card premium-frost-glass floating-card">
+                    <svg class="premium-icon" width="24" height="24" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <div>
+                        <b>Email Support</b><br>
+                        support@caai.finance<br>
+                        <span class="support-detail">Response within 2 hours</span>
+                    </div>
+                </div>
+
+                <div class="support-card premium-frost-glass floating-card">
+                    <svg class="premium-icon" width="24" height="24" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M22 16.92V19a2 2 0 0 1-2 2C5.92 21 3 18.08 3 14a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2c0 1.1.9 2 2 2s2-.9 2-2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2.08z"/>
+                    </svg>
+                    <div>
+                        <b>Phone Support</b><br>
+                        +1 (555) CAAI-HELP<br>
+                        <span class="support-detail">Mon-Fri 9AM-9PM EST</span>
+                    </div>
+                </div>
+
+                <div class="support-card premium-frost-glass floating-card">
+                    <svg class="premium-icon" width="24" height="24" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="3" y="7" width="15" height="10" rx="2"/>
+                        <polygon points="20,9 23,12 20,15"/>
+                    </svg>
+                    <div>
+                        <b>Video Consultation</b><br>
+                        One-on-one financial planning sessions<br>
+                        <span class="support-detail">Premium subscribers only</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="business-inquiries">
+                <b>
+                    <svg class="premium-icon" width="20" height="20" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="2" y="7" width="20" height="13" rx="2"/>
+                        <path d="M16 3h-8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/>
+                    </svg>
+                    Business Inquiries:
+                </b>
+                <ul>
+                    <li>
+                        <svg class="premium-icon" width="18" height="18" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        business@caai.finance
+                    </li>
+                    <li>
+                        <svg class="premium-icon" width="18" height="18" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="3"/>
+                            <path d="M16 8a6 6 0 0 1 6 6v5M4 8v13M12 15v4"/>
+                        </svg>
+                        LinkedIn: /company/caai-financial
+                    </li>
+                </ul>
             </div>
         </section>
     </div>
 
-    <!-- Dashboard Page -->
-    <div id="dashboard-page" class="page">
+    <!-- ============ DASHBOARD PAGE ============ -->
+    <div id="dashboardPage" class="page">
+        
         <!-- Dashboard Navigation -->
-        <nav class="dashboard-nav premium-frost-glass">
-            <div class="nav-brand">
-                <span class="logo-text premium-gradient-text">Ca<span class="ai-accent">Ai</span></span>
-            </div>
-            <div class="nav-actions">
-                <button class="nav-icon-btn premium-frost-btn" title="Notifications">
-                    <i class="fas fa-bell"></i>
-                    <span class="notification-badge premium-gradient">3</span>
-                </button>
-                <button class="nav-icon-btn premium-frost-btn" title="Settings">
-                    <i class="fas fa-cog"></i>
-                </button>
-                <button class="nav-icon-btn premium-frost-btn" onclick="logout()" title="Logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                </button>
+        <nav class="navbar premium-frost-glass dashboard-nav">
+            <div class="nav-container">
+                <div class="logo-corner">
+                    <span class="logo-text">Ca<span class="ai-accent">Ai</span></span>
+                    <span class="beta-badge">BETA</span>
+                </div>
+                <div class="nav-center">
+                    <div class="dashboard-search premium-frost-glass">
+                        <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                        <input type="text" class="search-input" placeholder="Search your finances...">
+                    </div>
+                </div>
+                <div class="nav-actions">
+                    <button class="nav-icon-btn premium-frost-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                        <span class="notification-badge premium-gradient-btn">3</span>
+                    </button>
+                    <button class="premium-frost-btn" onclick="showLanding()">
+                        <svg class="premium-icon" width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                        Home
+                    </button>
+                </div>
             </div>
         </nav>
 
+        <!-- Dashboard Container -->
         <div class="dashboard-container">
-            <!-- Enhanced Premium Sidebar -->
+            <!-- Sidebar -->
             <aside class="sidebar premium-frost-glass">
                 <div class="sidebar-header">
-                    <h3 class="premium-gradient-text">Dashboard</h3>
+                    <h3>Financial Command Center</h3>
+                    <p class="sidebar-subtitle">Complete financial oversight</p>
                 </div>
+                
                 <div class="sidebar-menu">
-                    <button class="menu-item active premium-frost-btn smooth-tab" data-tab="overview">
-                        <div class="menu-icon">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <span>Overview</span>
+                    <button class="menu-item smooth-tab active" data-tab="overview">
+                        <svg class="menu-icon premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                        Financial Overview
                         <div class="menu-indicator"></div>
                     </button>
-                    <button class="menu-item premium-frost-btn smooth-tab" data-tab="expenses">
-                        <div class="menu-icon">
-                            <i class="fas fa-receipt"></i>
-                        </div>
-                        <span>Expenses</span>
+                    
+                    <button class="menu-item smooth-tab" data-tab="expenses">
+                        <svg class="menu-icon premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <rect x="3" y="12" width="6" height="8" rx="1"/>
+                            <rect x="9" y="8" width="6" height="12" rx="1"/>
+                            <rect x="15" y="4" width="6" height="16" rx="1"/>
+                        </svg>
+                        Expense Analytics
                         <div class="menu-indicator"></div>
                     </button>
-                    <button class="menu-item premium-frost-btn smooth-tab" data-tab="income">
-                        <div class="menu-icon">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
-                        <span>Income</span>
+                    
+                    <button class="menu-item smooth-tab" data-tab="income">
+                        <svg class="menu-icon premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <polyline points="3 17 9 11 13 15 21 7"/>
+                            <polyline points="14 7 21 7 21 14"/>
+                        </svg>
+                        Income Management
                         <div class="menu-indicator"></div>
                     </button>
-                    <button class="menu-item premium-frost-btn smooth-tab" data-tab="investments">
-                        <div class="menu-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <span>Investments</span>
+                    
+                    <button class="menu-item smooth-tab" data-tab="investments">
+                        <svg class="menu-icon premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 0 0-20"/>
+                        </svg>
+                        Investment Portfolio
                         <div class="menu-indicator"></div>
                     </button>
-                    <button class="menu-item premium-frost-btn smooth-tab" data-tab="tax-planning">
-                        <div class="menu-icon">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <span>Tax Planning</span>
+                    
+                    <button class="menu-item smooth-tab" data-tab="taxes">
+                        <svg class="menu-icon premium-icon" width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        Tax Intelligence
                         <div class="menu-indicator"></div>
+                    </button>
+                </div>
+
+                <div class="quick-actions">
+                    <h4>Quick Actions</h4>
+                    <button class="premium-frost-btn quick-btn">
+                        <svg class="premium-icon" width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        Add Income
+                    </button>
+                    <button class="premium-frost-btn quick-btn">
+                        <svg class="premium-icon" width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        Add Expense
+                    </button>
+                    <button class="premium-frost-btn quick-btn">
+                        <svg class="premium-icon" width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M8 12l2 2 4-4"/>
+                        </svg>
+                        New Investment
                     </button>
                 </div>
             </aside>
 
-            <!-- Main Content with Enhanced Tab Transitions -->
+            <!-- Main Content -->
             <main class="main-content">
-                <!-- Overview Tab -->
-                <div id="overview-tab" class="tab-content premium-frost-glass active smooth-transition">
+                <!-- Financial Overview Tab -->
+                <div class="tab-content smooth-transition active" id="overview">
                     <div class="tab-header">
-                        <div class="tab-title-section">
-                            <h2 class="tab-title premium-gradient-text">Financial Overview</h2>
+                        <div>
+                            <h2 class="tab-title">Financial Overview</h2>
                             <p class="tab-subtitle">Your complete financial intelligence dashboard</p>
                         </div>
-                        <button class="action-btn premium-gradient-btn" onclick="toggleChatbot()">
-                            <i class="fas fa-brain"></i>
-                            <span>Ask AI CA</span>
-                        </button>
-                    </div>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-card premium-frost-glass floating-card">
-                            <div class="stat-icon premium-gradient">
-                                <i class="fas fa-wallet"></i>
-                            </div>
-                            <div class="stat-content">
-                                <div class="stat-value premium-gradient-text">$24,567</div>
-                                <div class="stat-label">Total Balance</div>
-                                <div class="stat-change positive">
-                                    <i class="fas fa-arrow-up"></i>
-                                    <span>+12.5%</span>
-                                </div>
-                            </div>
-                            <div class="stat-sparkline"></div>
-                        </div>
-                        <div class="stat-card premium-frost-glass floating-card">
-                            <div class="stat-icon premium-gradient">
-                                <i class="fas fa-trending-up"></i>
-                            </div>
-                            <div class="stat-content">
-                                <div class="stat-value premium-gradient-text" id="total-income">$5,890</div>
-                                <div class="stat-label">Monthly Income</div>
-                                <div class="stat-change positive">
-                                    <i class="fas fa-arrow-up"></i>
-                                    <span>+8.2%</span>
-                                </div>
-                            </div>
-                            <div class="stat-sparkline"></div>
-                        </div>
-                        <div class="stat-card premium-frost-glass floating-card">
-                            <div class="stat-icon premium-gradient">
-                                <i class="fas fa-trending-down"></i>
-                            </div>
-                            <div class="stat-content">
-                                <div class="stat-value premium-gradient-text">$2,340</div>
-                                <div class="stat-label">Monthly Expenses</div>
-                                <div class="stat-change negative">
-                                    <i class="fas fa-arrow-down"></i>
-                                    <span>-3.1%</span>
-                                </div>
-                            </div>
-                            <div class="stat-sparkline"></div>
-                        </div>
-                        <div class="stat-card premium-frost-glass floating-card">
-                            <div class="stat-icon premium-gradient">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-content">
-                                <div class="stat-value premium-gradient-text" id="total-investments">$18,945</div>
-                                <div class="stat-label">Investments</div>
-                                <div class="stat-change positive">
-                                    <i class="fas fa-arrow-up"></i>
-                                    <span>+15.7%</span>
-                                </div>
-                            </div>
-                            <div class="stat-sparkline"></div>
-                        </div>
-                    </div>
-
-                    <div class="charts-section">
-                        <div class="chart-card premium-frost-glass floating-card">
-                            <div class="chart-header">
-                                <h3 class="chart-title premium-gradient-text">Portfolio Performance</h3>
-                                <div class="chart-controls">
-                                    <button class="chart-btn active">6M</button>
-                                    <button class="chart-btn">1Y</button>
-                                    <button class="chart-btn">ALL</button>
-                                </div>
-                            </div>
-                            <div class="chart-container">
-                                <canvas id="portfolio-chart"></canvas>
-                            </div>
-                        </div>
-                        <div class="chart-card premium-frost-glass floating-card">
-                            <div class="chart-header">
-                                <h3 class="chart-title premium-gradient-text">Asset Allocation</h3>
-                            </div>
-                            <div class="chart-container">
-                                <canvas id="allocation-chart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Other tabs with smooth transitions -->
-                <div id="expenses-tab" class="tab-content premium-frost-glass smooth-transition">
-                    <div class="tab-header">
-                        <div class="tab-title-section">
-                            <h2 class="tab-title premium-gradient-text">Expense Analytics</h2>
-                            <p class="tab-subtitle">Track and optimize your spending patterns</p>
-                        </div>
-                    </div>
-                    <div class="chart-card premium-frost-glass floating-card">
-                        <div class="chart-header">
-                            <h3 class="chart-title premium-gradient-text">Expense Categories</h3>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="expenses-chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="income-tab" class="tab-content premium-frost-glass smooth-transition">
-                    <div class="tab-header">
-                        <div class="tab-title-section">
-                            <h2 class="tab-title premium-gradient-text">Income Management</h2>
-                            <p class="tab-subtitle">Track and manage all your income sources</p>
-                        </div>
                         <div class="tab-actions">
-                            <button class="action-btn premium-gradient-btn" onclick="showAddIncomeModal()">
-                                <i class="fas fa-plus"></i>
-                                <span>Add Income</span>
+                            <button class="action-btn premium-frost-btn">
+                                <svg class="premium-icon" width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                </svg>
+                                Export Report
+                            </button>
+                            <button class="action-btn premium-gradient-btn">
+                                <svg class="premium-icon" width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                                AI Insights
                             </button>
                         </div>
                     </div>
-                    <div class="income-sources" id="income-sources-container">
-                        <!-- Dynamic content -->
+
+                    <!-- Summary Metrics -->
+                    <div class="summary-metrics">
+                        <div class="metric-card floating-card premium-frost-glass">
+                            <div class="metric-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <div class="metric-content">
+                                <span class="metric-label">Portfolio Performance</span>
+                                <span class="metric-value">$847,392</span>
+                                <div class="metric-change positive">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                    </svg>
+                                    +12.5% this month
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="metric-card floating-card premium-frost-glass">
+                            <div class="metric-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                                    <polyline points="3 17 9 11 13 15 21 7"/>
+                                    <polyline points="14 7 21 7 21 14"/>
+                                </svg>
+                            </div>
+                            <div class="metric-content">
+                                <span class="metric-label">Monthly Cash Flow</span>
+                                <span class="metric-value">+$23,847</span>
+                                <div class="metric-change positive">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                    </svg>
+                                    +8.2% vs last month
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="metric-card floating-card premium-frost-glass">
+                            <div class="metric-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M8 12l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <div class="metric-content">
+                                <span class="metric-label">Recent Transactions</span>
+                                <span class="metric-value">47</span>
+                                <div class="metric-change">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 6v6l4 2"/>
+                                    </svg>
+                                    Last 7 days
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Insights Section -->
+                    <div class="ai-insights floating-card premium-frost-glass">
+                        <div class="section-header">
+                            <h3>AI Insights</h3>
+                        </div>
+                        <div class="insights-content">
+                            <div class="insight-item">
+                                <span class="insight-icon">
+                                    <svg class="premium-icon" width="16" height="16" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M8 12l2 2 4-4"/>
+                                    </svg>
+                                </span>
+                                <div>Your portfolio is well-diversified. Consider increasing your real estate allocation by 3% for better risk management.</div>
+                            </div>
+                            <div class="insight-item">
+                                <span class="insight-icon">
+                                    <svg class="premium-icon" width="16" height="16" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2">
+                                        <polyline points="3 17 9 11 13 15 21 7"/>
+                                        <polyline points="14 7 21 7 21 14"/>
+                                    </svg>
+                                </span>
+                                <div>Your monthly savings rate of 28% is excellent. You're on track to meet your retirement goals 3 years early.</div>
+                            </div>
+                            <div class="insight-item">
+                                <span class="insight-icon">
+                                    <svg class="premium-icon" width="16" height="16" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                        <polyline points="14 2 14 8 20 8"/>
+                                    </svg>
+                                </span>
+                                <div>Tax optimization opportunity: Consider maxing out your 401(k) to save $2,840 in taxes this year.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div id="investments-tab" class="tab-content premium-frost-glass smooth-transition">
-                    <div class="tab-header">
-                        <div class="tab-title-section">
-                            <h2 class="tab-title premium-gradient-text">Investment Portfolio</h2>
-                            <p class="tab-subtitle">Monitor and manage your investment portfolio</p>
-                        </div>
-                        <div class="tab-actions">
-                            <button class="action-btn premium-gradient-btn" onclick="showAddInvestmentModal()">
-                                <i class="fas fa-plus"></i>
-                                <span>Add Investment</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="investment-holdings" id="investment-holdings-container">
-                        <!-- Dynamic content -->
-                    </div>
+                <!-- Other Dashboard Tabs (Placeholder) -->
+                <div class="tab-content smooth-transition" id="expenses">
+                    <h2>Expense Analytics</h2>
+                    <p>Track and optimize your spending patterns</p>
                 </div>
 
-                <div id="tax-planning-tab" class="tab-content premium-frost-glass smooth-transition">
-                    <div class="tab-header">
-                        <div class="tab-title-section">
-                            <h2 class="tab-title premium-gradient-text">Tax Intelligence</h2>
-                            <p class="tab-subtitle">Optimize your tax strategy with AI insights</p>
-                        </div>
-                    </div>
-                    <div class="chart-card premium-frost-glass floating-card">
-                        <div class="chart-header">
-                            <h3 class="chart-title premium-gradient-text">Tax Overview</h3>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="tax-chart"></canvas>
-                        </div>
-                    </div>
+                <div class="tab-content smooth-transition" id="income">
+                    <h2>Income Management</h2>
+                    <p>Track and optimize all your income sources</p>
+                </div>
+
+                <div class="tab-content smooth-transition" id="investments">
+                    <h2>Investment Portfolio</h2>
+                    <p>Professional-grade portfolio management</p>
+                </div>
+
+                <div class="tab-content smooth-transition" id="taxes">
+                    <h2>Tax Intelligence</h2>
+                    <p>AI-powered tax optimization and planning</p>
                 </div>
             </main>
         </div>
     </div>
 
-    <!-- Enhanced Auth Modal with Guest Option -->
-    <div id="auth-modal" class="modal">
-        <div class="modal-backdrop"></div>
-        <div class="modal-content premium-frost-glass">
-            <div class="modal-header">
-                <h2 id="auth-title" class="premium-gradient-text">Welcome Back</h2>
-                <button class="modal-close premium-frost-btn" onclick="closeAuthModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="auth-form">
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" class="premium-input" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" class="premium-input" required>
-                    </div>
-                    <button type="submit" class="form-submit premium-gradient-btn" id="auth-submit">Sign In</button>
-                </form>
-                <div class="guest-access-section">
-                    <button class="guest-btn premium-frost-btn" onclick="guestAccess()">
-                        <i class="fas fa-user-clock"></i>
-                        <span>Continue as Guest</span>
-                        <small>No registration required</small>
-                    </button>
-                </div>
-                <div class="divider">
-                    <span>or continue with</span>
-                </div>
-                <div class="social-auth">
-                    <button class="social-btn premium-frost-btn" onclick="googleAuth()">
-                        <i class="fab fa-google"></i>
-                        <span>Google</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Feature Details Modal -->
-    <div id="feature-modal" class="modal">
-        <div class="modal-backdrop"></div>
-        <div class="modal-content premium-frost-glass large-modal">
-            <div class="modal-header">
-                <h2 id="feature-title" class="premium-gradient-text">Feature Details</h2>
-                <button class="modal-close premium-frost-btn" onclick="closeFeatureModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body" id="feature-content">
-                <!-- Dynamic feature content -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Premium AI Chatbot -->
-    <div id="ai-chatbot" class="chatbot premium-frost-glass">
-        <div class="chatbot-header premium-frost-glass" onclick="toggleChatbot()">
-            <div class="chatbot-avatar premium-gradient">
-                <i class="fas fa-brain"></i>
+    <!-- Enhanced Chatbot (Available on both pages) -->
+    <div class="chatbot floating-element premium-frost-glass" id="chatbot">
+        <div class="chatbot-header" onclick="toggleChatbot()">
+            <div class="chatbot-avatar pulse-avatar">
+                <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="8" rx="2"/>
+                    <rect x="7" y="7" width="10" height="4"/>
+                    <circle cx="8" cy="15" r="1"/>
+                    <circle cx="16" cy="15" r="1"/>
+                </svg>
                 <div class="avatar-pulse"></div>
             </div>
             <div class="chatbot-info">
-                <div class="chatbot-name premium-gradient-text">CaAi Assistant</div>
-                <div class="chatbot-status">Online • 30yr CA Experience</div>
+                <div class="chatbot-name">CaAi Assistant</div>
+                <div class="chatbot-status">
+                    <span class="status-indicator online"></span>
+                    Online • Ready to help
+                </div>
             </div>
             <div class="chatbot-toggle">
-                <i class="fas fa-chevron-down"></i>
+                <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                    <polyline points="18 15 12 9 6 15"/>
+                </svg>
             </div>
         </div>
-        <div class="chatbot-body premium-frost-glass">
-            <div class="chat-messages" id="chat-messages">
-                <!-- Messages will be populated by JavaScript -->
+        <div class="chatbot-body">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="8" rx="2"/>
+                            <rect x="7" y="7" width="10" height="4"/>
+                            <circle cx="8" cy="15" r="1"/>
+                            <circle cx="16" cy="15" r="1"/>
+                        </svg>
+                    </div>
+                    <div class="message-content">
+                        <p>Hello! I'm CaAi, your personal financial advisor with 30 years of CA expertise. How can I help optimize your finances today?</p>
+                    </div>
+                </div>
             </div>
-            <div class="chat-input-container premium-frost-glass">
-                <input type="text" id="chat-input" class="chat-input premium-input" placeholder="Ask your AI CA anything about finances...">
-                <button id="send-chat" class="send-btn premium-gradient-btn" onclick="sendMessage()">
-                    <i class="fas fa-paper-plane"></i>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input premium-input" placeholder="Ask about your finances..." id="chatInput">
+                <button class="send-btn premium-gradient-btn" onclick="sendMessage()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22,2 15,22 11,13 2,9 22,2"/>
+                    </svg>
                 </button>
             </div>
         </div>

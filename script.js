@@ -2,7 +2,7 @@
 
 // Gemini API Configuration
 const GEMINI_CONFIG = {
-    API_KEY: 'AIzaSyCdQOv1k52sK3eIm-_xJz6RB7bdmtDqfAs',
+    API_KEY: '',
     API_URL: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent',
     MODEL: 'gemini-pro'
 };
